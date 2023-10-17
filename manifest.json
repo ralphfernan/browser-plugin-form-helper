@@ -1,0 +1,17 @@
+{
+    "name": "Jenkins Non-convolutional",
+    "version": "0.0.0.1",
+    "manifest_version": 3,
+    "description": "Copy NWKN (NOT-Well-Known-Values) to Clipboard.",
+    "icons": {
+        "16": "icons/filor.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';",
+        "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+
+    },
+    "action": {
+        "default_popup": "popup.html"
+    }
+}

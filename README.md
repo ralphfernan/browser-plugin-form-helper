@@ -1,0 +1,1 @@
+To install in Edge, see [Sideload an Extension](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
