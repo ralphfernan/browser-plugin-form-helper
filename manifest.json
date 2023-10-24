@@ -2,7 +2,7 @@
     "name": "Jenkins Non-convolutional",
     "version": "0.0.0.1",
     "manifest_version": 3,
-    "description": "Copy NWKN (NOT-Well-Known-Values) to Clipboard.",
+    "description": "Insert hard-to-remember values into a form.",
     "icons": {
         "16": "icons/filor.png"
     },
@@ -11,7 +11,29 @@
         "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
 
     },
+    "permissions": ["activeTab", "scripting"],
     "action": {
-        "default_popup": "popup.html"
+        "NOT_USED_default_popup": "popup.html",
+        "default_title": "Action Button"
+    },
+    "background": {
+    "service_worker": "service-worker.js"
+    },
+    "content_scripts": [
+    {
+        "matches": ["http://jenkins.internal:8080/job/ranger_deploy"],
+        "run_at": "document_end",
+        "js": ["contentScript.js"]
     }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [ "data/*" ],
+            "matches": [ "http://jenkins.internal:8080/*" ]
+        }, {
+            "resources": [ "test3.png", "test4.png" ],
+            "matches": [ "https://web-accessible-resources-2.glitch.me/*" ],
+            "use_dynamic_url": true
+        }
+    ]
 }
